@@ -19,8 +19,12 @@ and TVDB ids, not by name or library, so it doesn't matter what your friends cal
   counts, is set in Settings → Upgrades).
 
 A **Downloads not permitted** badge means the owner hasn't allowed downloads from that library; those titles
-are listed but can't be added. **Ignore** (⋯ menu) takes a title, season or episode off the lists for good;
-**Show ignored** brings them back.
+are listed but can't be added.
+
+**Don't download**: tick titles (or **Select all** for everything matching your filters) and choose **Don't
+download**, or use the ⋯ menu on one title, season or episode. They leave the lists and every count on the
+Dashboard, and are never auto-followed. Changed your mind? Tick **Show "don't download"**, select them and choose
+**Download after all** (or use Settings → Not downloading).
 
 ## Basket, review and queue
 
