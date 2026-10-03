@@ -27,7 +27,8 @@ exact files involved (**Details**).
 
 - **Kind of problem** narrows a check down (for example *DTS/TrueHD audio only* or *Forced picture subtitle*
   under "Files Plex has to convert to play").
-- Tick issues, or **Select all N in this list**, then **Review & fix…** to see every change before it happens.
+- Tick issues, or **Select all fixable on this page**, or **select all N in this list** (every issue matching your
+  filters, not just the 100 on screen), then **Review & fix…** to see every change before it happens.
 - Choose **Now** or **Later, at** a time (for example 02:00), so big jobs run overnight. Scheduled batches are
   listed at the top with **Cancel**.
 - While a batch is running you can still add more: they wait their turn and start as soon as it finishes.
