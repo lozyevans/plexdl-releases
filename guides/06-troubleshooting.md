@@ -34,6 +34,17 @@ other device must be on the same home network.
 
 **Port 32500 is in use.** Run the installer again and choose another port.
 
+**"Can't reach your Plex Media Server" at sign-in.** PlexDL looks for Plex on the same PC. If Plex runs on
+another PC, open `http://localhost:32500` on the PlexDL PC and use **Plex on another PC?** under the sign-in
+button (see Installing → Plex on a different PC).
+
+**"Plex.tv doesn't list … as an address of …".** Enter the address Plex itself reports: its private IP and port
+from Plex → **Settings → Remote Access** (usually port 32400), not a name or port forward of your own.
+
+**An import folder shows "may point at the wrong folder".** The folder mapping in Settings → Import into Plex
+reaches a folder, but not the one Plex uses: the files Plex has there aren't at the mapped path. Fix the mapping
+before importing.
+
 **"Windows protected your PC" when installing.** The installer isn't signed yet: **More info → Run anyway**.
 
 ## Getting help
