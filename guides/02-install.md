@@ -6,7 +6,8 @@ works whether or not anyone is signed in, and you use it from any browser on you
 ## Before you start
 
 - 64-bit Windows 10, 11 or Server 2016 or newer, and an account with admin rights.
-- Plex Media Server installed and running on the same PC.
+- Plex Media Server installed and running on the same PC (or another PC on your network: see **Plex on a
+  different PC** below).
 - Free space for downloads while they're converted (PlexDL warns you if a drive gets low).
 - An NVIDIA, Intel or AMD graphics chip makes conversions much faster, but isn't required.
 
@@ -47,6 +48,21 @@ From another device, open `http://<plex-server-name>:32500` (or its IP address, 
 2. Follow the setup checklist: which friends' libraries to compare, which of your libraries films and TV go
    to, and download settings.
 3. On the Dashboard press **Full sync** once.
+
+## Plex on a different PC
+
+PlexDL works best on the Plex PC, but it can run on another PC on the same network:
+
+1. Install PlexDL on that PC. **Checking this PC** warns that Plex isn't there; that's fine.
+2. On that PC, open `http://localhost:32500`. Under the sign-in button choose **Plex on another PC?** and enter
+   the Plex server's address, e.g. `http://192.168.1.10:32400`. Plex shows its private IP and port under
+   **Settings → Remote Access**. This can only be done on the PlexDL PC itself, before anyone signs in.
+3. Sign in with the account that owns that Plex server. PlexDL checks that plex.tv lists the address you entered
+   for your server; if not, sign-in says so and you can correct it.
+4. In **Settings → Import into Plex**, map each Plex folder to how this PC reaches it (e.g. `H:\` →
+   `\\plexserver\H$`). Each folder shows a ✓ when PlexDL finds a file where Plex says it is.
+
+Later you can change the address under **Settings → Your Plex server**.
 
 ## Moving from a trial install on another PC
 
