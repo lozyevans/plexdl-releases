@@ -18,6 +18,24 @@ Turn it on in the **Follows** page. Films you add to your Plex Watchlist (on any
 soon as a friend has them (1080p or 4K, your choice); shows are followed. Each title is acted on once, and the
 page shows what happened to each one.
 
+## Upgrading films automatically
+
+PlexDL can replace films you own when a friend has a clearly better copy (the same rule as **Compare →
+Upgrades**: enough extra quality, or yours uses an old codec like XviD). It's off until you choose:
+
+- **Pick single films**: in **Compare → Movies** (Already owned) or **Compare → Upgrades**, open a film's **…**
+  menu and choose **Upgrade automatically when better**. It gets an **Auto-upgrade** badge, and is upgraded
+  whenever a friend has a better copy, now or later.
+- **Settings → Upgrades → Upgrade films automatically**: only films you pick, those plus whole libraries, or
+  all your films. Limits: 4K only if you allow it, a largest file size (40 GB to start with) and at most so
+  many films a week (10 to start with; the biggest improvements go first).
+
+It checks after every sync (or **Check now**). Films you marked **Don't download** are left alone, and so are
+films where you chose **Stop upgrading automatically** (even with "all my films"). An upgrade that failed or
+was cancelled isn't tried again for 30 days after it ended, and a copy that was already brought in is never
+fetched again for the same film, even if you clear the Queue. As with any upgrade, your old copy goes to the
+`PlexDL Backup` folder and **History** can undo it.
+
 ## When things run
 
 **Settings → Schedule**:
@@ -29,6 +47,19 @@ page shows what happened to each one.
 **Settings → Downloads** sets download windows. Each friend's server can have its own window **in its own time
 zone** (pick the zone by city or country), so a server in another country is only used during its night. Outside
 the window downloads can pause or carry on at a slower speed.
+
+PlexDL also **goes easy on friends' servers** on its own:
+
+- While a friend's Plex server is converting a stream for someone, downloads from it pause, then carry on where
+  they stopped. (Plex only tells PlexDL about converted streams; someone playing a file directly shows up as the
+  server getting much slower, below.) You can turn this off per server.
+- A server that keeps failing is rested for 2 minutes, then 10, 30 and 60, instead of being retried straight away.
+- A server that's much slower than usual for a couple of minutes gets one download at a time for 15 minutes, or a
+  10-minute rest.
+- Each friend's server can have a **data limit** per day or per week (weeks start on Monday). At the limit,
+  downloads from it stop until the next day or week.
+
+The Dashboard shows how much has come from each friend this week, and the Queue says why a download is waiting.
 
 **System** shows when each task last ran and when it runs next, with **Run now**.
 
