@@ -17,6 +17,17 @@ and TVDB ids, not by name or library, so it doesn't matter what your friends cal
   do have. **Add season** or **Add all missing** takes everything missing at once.
 - **Upgrades**: titles a friend has in clearly better quality than your copy (how much better, and whether 4K
   counts, is set in Settings → Upgrades).
+- **Collections**: film collections and franchises (the Alien films, James Bond, Toy Story…) you have part of:
+  "You have 1 of 4", with what's missing listed underneath and which friend has each one. **Download N missing**
+  queues them straight away (1080p or 4K when there is one); **Add to basket** lets you review them first.
+  **Follow** gets new parts as friends get them. Films nobody has, or that aren't out yet, are shown but not
+  counted against you. PlexDL learns which collection each film is in from Plex's own catalogue after each
+  sync (the first time takes a few minutes; **Look up now** starts it).
+
+  **Collections in your Plex**: at the top of the page you can let Plex build these collections in your own
+  libraries ("From 2 films" means a collection appears once you have two of its films). Tick **Also refresh the
+  library's metadata** so films you already have join; Plex does that in the background and it can take a
+  while.
 
 A **Downloads not permitted** badge means the owner hasn't allowed downloads from that library; those titles
 are listed but can't be added.
