@@ -36,6 +36,10 @@ and TVDB ids, not by name or library, so it doesn't matter what your friends cal
 A **Downloads not permitted** badge means the owner hasn't allowed downloads from that library; those titles
 are listed but can't be added.
 
+![Compare → TV: shows you don't have, and the seasons missing from ones you do](images/compare-tv.png)
+
+![Compare → Upgrades: a friend's much better copy of a film you have](images/compare-upgrades.png)
+
 **Don't download**: tick titles (or **Select all** for everything matching your filters) and choose **Don't
 download**, or use the ⋯ menu on one title, season or episode. They leave the lists and every count on the
 Dashboard, and are never auto-followed. Changed your mind? Tick **Show "don't download"**, select them and choose
@@ -59,6 +63,26 @@ When another friend has exactly the same file (same size, and the same bytes whe
 comes from them: faster, and lighter on both servers. Each friend's limits, busy times and download windows still
 apply; if the second friend gets busy or drops out, the first one finishes the rest. You can turn this off in
 **Settings → Downloads**.
+
+### When downloads fail
+
+- **Retries:** a failed download tries again by itself: 10 times over 48 hours to start with, soon after a blip and
+  further apart later, then once a day for a week. Each retry carries on from what's already downloaded. The
+  Queue shows "Retry 3 of 17 at 14:30", and a failed download says when it will try again. Change the numbers in
+  **Settings → Downloads**. A file that's gone from the friend's server, or that they don't let you download,
+  isn't retried.
+- **A friend goes offline:** the download waits for them ("Waiting for Alice: it's offline"), checking every 10
+  minutes, without using up its retries, and carries on from where it stopped when they're back. If another
+  friend has a copy of the same size, it carries on from them instead. PlexDL first checks that the bytes it
+  already has match their copy, and starts again if they don't.
+- **Keep for later:** on a failed download, this stops the retries and keeps what's downloaded with no deadline.
+  **Resume** carries on from there; **Cancel** deletes it.
+- **Space:** parts of failed downloads are kept for 30 days (so **Retry** carries on), then deleted. The Queue
+  and System pages show how much space they take, with **Delete parts of failed downloads**.
+
+![A failed download: Retry, or Keep for later](images/queue-problems.png)
+
+![Settings → Downloads: how many at once, retries and how long parts are kept](images/settings-downloads.png)
 
 ## Converting
 
