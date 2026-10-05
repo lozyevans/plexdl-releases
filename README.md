@@ -11,7 +11,7 @@ your home network.
 ## Download
 
 **[Download the latest version](https://github.com/lozyevans/plexdl-releases/releases/latest)**: under **Assets**, download
-`PlexDL-Setup-0.1.3.exe` (and `.sha256` if you'd like to check it).
+`PlexDL-Setup-0.1.4.exe` (and `.sha256` if you'd like to check it).
 
 Needs 64-bit Windows 10, 11 or Server 2016 or newer, with Plex Media Server installed on the same PC. Nothing
 else to install: the installer brings everything PlexDL needs.
@@ -21,9 +21,9 @@ else to install: the installer brings everything PlexDL needs.
 1. Run `PlexDL-Setup-x.y.z.exe` **on your Plex server** and allow it to make changes. If Windows says
    "Windows protected your PC", choose **More info → Run anyway** (the installer isn't code-signed yet).
 2. Click through: it checks the PC first and tells you if anything needs fixing.
-3. Your browser opens PlexDL. **Sign in with Plex** using the account that owns the server, and follow the
-   setup checklist.
-4. On the Dashboard press **Full sync** once, then look in **Compare**.
+3. Your browser opens PlexDL. **Sign in with Plex** using the account that owns the server; the setup
+   wizard walks you through the rest (every step can be skipped).
+4. **Finish and open Compare** runs the first sync, then shows what friends have that you don't.
 
 Upgrading: run the newer installer the same way; your settings and history are kept, and if the new version
 doesn't start the old one is put back.
