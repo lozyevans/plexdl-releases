@@ -45,9 +45,12 @@ From another device, open `http://<plex-server-name>:32500` (or its IP address, 
 ## First sign-in
 
 1. **Sign in with Plex** using the account that **owns** this Plex server. Nobody else can sign in.
-2. Follow the setup checklist: which friends' libraries to compare, which of your libraries films and TV go
-   to, and download settings.
-3. On the Dashboard press **Full sync** once.
+2. The setup wizard opens. It walks through your Plex and friends' servers, which libraries to compare,
+   where films and TV go (and whether PlexDL can write there), the file format, download limits that are
+   kind to friends, optional automation and notifications. Every step shows what's set now and can be
+   skipped; what you choose is saved as you go, and **Skip setup** keeps the defaults. Run it again any
+   time from **System → Run setup again**.
+3. **Finish and open Compare** runs the first sync (if PlexDL hasn't synced yet) and opens Compare.
 
 ## Plex on a different PC
 
@@ -84,6 +87,23 @@ If you tried PlexDL on another PC first and want to keep its settings, follows a
 
 4. In **Settings → Import into Plex**, remove any drive mappings you needed on the old PC (such as
    `H:\ → \\server\H$`): on the Plex server PlexDL reaches the folders directly.
+
+## Just the settings: export and import
+
+To copy only your settings to another PlexDL (or give a friend a starting point), use **Settings → Export and
+import settings**. **Export settings** saves one file with your download, conversion, destination, schedule,
+notification and Media Manager settings, followed shows and collections, and your Don't download list. Your
+sign-in, tokens, passwords and webhooks are never in it.
+
+On the other PC, **Import settings…** shows what each part would change ("Downloads at once: 2 → 3", "Follows 3
+more shows") and brings in only the parts you tick. Followed shows and lists are added to, never removed.
+**This PC's folders** (staging, backup and inbox folders, path mappings) starts unticked, because they're
+usually different on another PC. Notification channels keep this PC's webhooks and passwords: one that needs a
+secret this PC doesn't have, or whose server or account changes, stays off until you add it. Choices that name
+something on the other PC's Plex (a library that isn't here, or "same film" match choices from a different
+Plex server) are left as they are here, and the preview says so. Each part either comes in whole or not at all.
+
+Unlike a backup, this doesn't move your history, queue or sign-in.
 
 ## Limited account (optional)
 
