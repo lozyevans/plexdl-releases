@@ -3,6 +3,8 @@
 Media Manager looks after **your own** library: names Plex may misread, duplicates, files Plex hasn't picked
 up, wrong matches, files Plex has to convert to play, broken files, clutter and space you could free.
 
+![Media Manager after a scan: what it found, by kind, with a fix for each](images/media-manager.png)
+
 ## It's safe by design
 
 - **Scanning only reads.** Nothing changes until you choose a fix and confirm it.
