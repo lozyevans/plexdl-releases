@@ -58,6 +58,12 @@ PlexDL also **goes easy on friends' servers** on its own:
   10-minute rest.
 - Each friend's server can have a **data limit** per day or per week (weeks start on Monday). At the limit,
   downloads from it stop until the next day or week.
+- PlexDL uses **at most a share of each friend's upload speed**: 50% in their daytime and 90% overnight by
+  default (overnight means inside the download window, or midnight to 7am their time if there isn't one), so
+  their own viewers and household still have room. Plex doesn't tell friends a server's upload speed, so PlexDL
+  measures it about once a week during a night-time download (it lifts the limit for under a minute) and starts
+  from your earlier download speeds until then. If you know the figure, enter it. Change the shares or the
+  upload speed per friend in **Settings → Downloads**, under "Go easy on friends' servers".
 
 The Dashboard shows how much has come from each friend this week, and the Queue says why a download is waiting.
 
