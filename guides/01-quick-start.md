@@ -8,11 +8,23 @@ that runs your Plex Media Server and you use it from a web browser.
 
 1. **Install** PlexDL on your Plex server: run `PlexDL-Setup-x.y.z.exe` there (see
    [Installing and upgrading](02-install.md)).
-2. **Sign in with Plex** using the account that owns the server, then follow the setup checklist.
-3. **Full sync** on the Dashboard, once. After that PlexDL keeps itself up to date.
+2. **Sign in with Plex** using the account that owns the server. The setup wizard opens: eight short steps
+   (what to compare, where files go, their format, how kind to be to friends…), each with sensible
+   defaults. Skip any step, or the whole thing; **System → Run setup again** brings it back.
+3. **Finish** runs the first sync and opens Compare. After that PlexDL keeps itself up to date.
 4. **Compare → Movies / TV**: press **+ Add** on what you want, then **Basket → Review → Queue**
    (see [Finding and downloading](03-compare-and-download.md)).
 5. Watch the **Queue**: each title downloads, converts, and is added to Plex. **History** can undo any of them.
+
+![The Dashboard: what you're missing, and each friend's server](images/dashboard.png)
+
+![Compare → Movies: films your friends have and you don't, with the quality of each copy](images/compare-movies.png)
+
+![The basket: pick 4K or 1080p, see the size and roughly how long it takes](images/review.png)
+
+![The Queue: downloads in progress, and two waiting for a friend whose server is offline](images/queue.png)
+
+_The screenshots use made-up friends and films._
 
 ## The guides
 
@@ -26,6 +38,11 @@ that runs your Plex Media Server and you use it from a web browser.
 - [Troubleshooting](06-troubleshooting.md): offline servers, slow or blocked downloads, logs and getting help.
 - [Plex on a different PC](07-plex-on-another-pc.md): running PlexDL on another PC on your network: shares,
   the service account, folder mappings and ports.
+- [Settings explained](08-settings.md): what each box on the Settings page does.
+- [Words used in PlexDL](09-glossary.md): direct play, remux, staging, night shift and the rest.
+
+Everywhere in PlexDL, a **?** next to a heading opens the matching part of these guides, and words with a dotted
+underline show what they mean when you point at them.
 
 ## Good to know
 
