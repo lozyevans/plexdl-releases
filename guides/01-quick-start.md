@@ -24,6 +24,8 @@ that runs your Plex Media Server and you use it from a web browser.
   schedules and notifications.
 - [Media Manager](05-media-manager.md): tidying your own library safely.
 - [Troubleshooting](06-troubleshooting.md): offline servers, slow or blocked downloads, logs and getting help.
+- [Plex on a different PC](07-plex-on-another-pc.md): running PlexDL on another PC on your network: shares,
+  the service account, folder mappings and ports.
 
 ## Good to know
 
