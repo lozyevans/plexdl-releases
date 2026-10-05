@@ -12,7 +12,11 @@ and TVDB ids, not by name or library, so it doesn't matter what your friends cal
 ## Compare
 
 - **Movies**: films a friend has and you don't. Filter by friend, year, genre, rating or quality; each row says
-  who has it, in what quality and how big it is.
+  who has it, in what quality and how big it is. Two **file type** filters pick titles by your copy's type and by
+  a friend's copy's type: AVI, MKV, MP4, TS, WMV files, or HEVC/x265, H.264/x264, XviD/DivX, MPEG-2, VC-1, AV1,
+  VP9 video. For example, *Your copy: AVI file* with **Already owned** lists your old AVI films, and *Friend's
+  copy: HEVC / x265* shows the ones you could get as smaller HEVC files. The same filters are on **Upgrades**
+  (films and episodes).
 - **TV**: shows grouped by show and season. Shows you don't have at all, and the episodes missing from shows you
   do have. **Add season** or **Add all missing** takes everything missing at once.
 - **Upgrades**: titles a friend has in clearly better quality than your copy (how much better, and whether 4K
@@ -51,6 +55,11 @@ Downloads resume where they stopped after a restart or a dropped connection, and
 several parts at once (much faster from a far-away server). Speed limits, how many run at once and night-time
 windows per friend's server are in **Settings → Downloads**.
 
+When another friend has exactly the same file (same size, and the same bytes where PlexDL checks), half of it
+comes from them: faster, and lighter on both servers. Each friend's limits, busy times and download windows still
+apply; if the second friend gets busy or drops out, the first one finishes the rest. You can turn this off in
+**Settings → Downloads**.
+
 ## Converting
 
 Each download is checked and, if needed, converted so it plays directly on TVs, phones and browsers without
@@ -73,8 +82,38 @@ the Queue for you to look at, with a link to it in Plex.
 
 Upgrades replace your old copy; the old one is kept in the `PlexDL Backup` folder next to that library.
 
+## Files from elsewhere: the Inbox
+
+Got a film or episode some other way? Turn on **Inbox** (in the menu), choose a folder (for example `D:\Inbox`)
+and drop videos into it, in folders if you like. Every minute PlexDL looks for new files, leaving each one a
+minute first in case it's still copying in. It works out what each file is from its name and folders
+(`Arrival.2016.1080p.mkv`, `Spaced S01E03.avi`, `Doctor Who (2005)\Season 2\2x04.mkv`), checking your Plex, your
+friends' libraries and Plex's online catalogue. Then it converts and adds the file exactly like a download: an
+episode of a show you have goes next to your other episodes. Subtitle files with the same name
+(`Arrival.2016.1080p.en.srt`) come along. Once Plex has it, the file is deleted from the inbox.
+
+Files PlexDL is sure about go straight in (you can turn that off). The rest wait on the Inbox page with the
+reason: the name matches more than one title, the film has no year, it isn't found anywhere, the file holds
+more than one episode, or you already have it (importing then replaces your copy, which goes to the backup
+folder). **Import** goes ahead, **Change**
+searches for the right title (and asks for the season and episode of a show), and **Don't import** leaves the
+file alone. Samples, extras folders and tiny files are ignored. History can undo any import, as usual.
+
 ## History and undo
 
 **History** lists everything added to Plex. **Undo** takes an import back out: its files move to
 `PlexDL Backup\Undone <date>` (never deleted), and for an upgrade your previous copy comes back. Plex is told to
-rescan both places.
+rescan both places. If the backup of your previous copy has been deleted since (Media Manager → PlexDL backups),
+the upgrade can't be undone: History says so and Undo is turned off, so you're never left with neither copy.
+
+## Statistics
+
+**Statistics** (in the menu) adds it all up: films and episodes added, how much came from each friend and when,
+which libraries grew, the space saved by converting (downloads and Media Manager), the hours your downloads
+usually finish, and how much of what was added in the last 90 days you've actually watched (from your Plex).
+Switch the charts between the last 12 weeks and the last 12 months. **Export everything added (CSV)** gives one
+row per title, for a spreadsheet.
+
+Upgrades count towards what was downloaded but not as new titles. Downloads stay in the statistics after you clear
+them from the Queue. If your Plex is slow to answer, the page shows everything else straight away and fills in the
+watched list when Plex replies.
