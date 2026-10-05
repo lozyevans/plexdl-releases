@@ -7,7 +7,8 @@ up, wrong matches, files Plex has to convert to play, broken files, clutter and 
 
 - **Scanning only reads.** Nothing changes until you choose a fix and confirm it.
 - **Nothing is deleted.** Files that are replaced or removed move to the `PlexDL Backup` folder next to the
-  library. The only exception is deleting old PlexDL backups, and only after you tick to confirm.
+  library. The only exceptions are deleting PlexDL's own backups, after you tick to confirm, and the nightly
+  clean-up of old backups if you turn it on.
 - **Every change can be undone** from the **Changes** tab.
 - If PlexDL is stopped part-way through a fix, it puts the files back where they were when it next starts.
 
@@ -38,11 +39,50 @@ exact files involved (**Details**).
 Conversions take time: a quick repackage of a TV episode takes a few minutes over the network; re-encoding a
 film can take about an hour.
 
+**Empty folders** are checked twice. The fix looks at the whole folder again first and refuses if anything is in
+it now. Then it removes the folders one by one, deepest first, in a way that stops at any folder that isn't
+empty. So a file copied in at that moment stops the removal; it's never deleted with the folder. Removed folders
+come back with **Undo**. "Empty" means no files at all: a folder with only a `Thumbs.db` or a subtitle in it isn't
+listed. A show folder can end up empty when its episodes were moved or deleted outside Plex. Check
+**Files Plex can't find** for that show before removing it.
+
+## Night shift
+
+For the long jobs (the files Plex has to convert to play, and files that could be much smaller), turn on
+**Night shift** in Media Manager → Settings and choose a window, for example 01:00 to 07:00. Every night in that
+window, Media Manager converts those files one at a time, the most serious first, until there are none left. It
+doesn't start a new one after the window ends; one already running finishes. A file that can't be converted is
+skipped for the rest of that night. You get a summary each morning that it did something, and a note when it's
+all done; a later scan that finds more gets picked up the next night. The top of the page shows how many are
+left. Every conversion is in **Changes** with **Undo**, like any other fix.
+
 ## Plex upkeep
 
 The **Plex upkeep** box runs Plex's own maintenance: **Empty trash** (forget titles whose files are gone),
 **Clean bundles** and **Optimise the Plex database**. Each shows its progress as Plex works, when it was last run
 from PlexDL, whether Plex already does it by itself, and **Recommended** when there's a reason to run it now.
+
+## PlexDL backups
+
+Files that PlexDL replaces (upgrades, fixes) or takes out (History's Undo) go to a `PlexDL Backup` folder next to
+each library. The **PlexDL backups** box (under Plex upkeep) shows how much space they take, how much of that is
+older than the age set in Settings (30 days to start with), and the free space on each drive. **Check again**
+looks afresh; otherwise it's checked every 10 minutes when you look.
+
+- **Delete older than 30 days** deletes just the old ones.
+- **Empty now…** deletes everything in the backup folders.
+
+Both ask you to tick **I understand this can't be undone** first: once a backup is gone, the change that put it
+there can't be undone any more. Each backup is checked again just before it's deleted, and anything that changed
+since is left alone. If more backups have appeared since you looked, nothing is deleted and the new figures are
+shown for you to confirm again. Nothing outside the backup folders is ever touched, and only folders PlexDL made
+are counted: anything else you keep in there is left alone. A backup folder set in Settings that holds a library
+folder isn't used (PlexDL uses `PlexDL Backup` at the top of the drive instead). Entries under Changes whose
+backups are deleted are marked as no longer undoable.
+
+To keep them in check by themselves, turn on **Delete PlexDL backups older than N days by itself, each night** in
+Media Manager → Settings. Once a night (after 03:00) PlexDL deletes the old ones and tells you how much it
+freed. It's off until you turn it on.
 
 ## If something was interrupted
 
