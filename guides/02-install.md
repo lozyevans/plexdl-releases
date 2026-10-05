@@ -51,7 +51,7 @@ From another device, open `http://<plex-server-name>:32500` (or its IP address, 
 
 ## Plex on a different PC
 
-PlexDL works best on the Plex PC, but it can run on another PC on the same network:
+PlexDL works best on the Plex PC, but it can run on another PC on the same network. In short:
 
 1. Install PlexDL on that PC. **Checking this PC** warns that Plex isn't there; that's fine.
 2. On that PC, open `http://localhost:32500`. Under the sign-in button choose **Plex on another PC?** and enter
@@ -59,8 +59,11 @@ PlexDL works best on the Plex PC, but it can run on another PC on the same netwo
    **Settings → Remote Access**. This can only be done on the PlexDL PC itself, before anyone signs in.
 3. Sign in with the account that owns that Plex server. PlexDL checks that plex.tv lists the address you entered
    for your server; if not, sign-in says so and you can correct it.
-4. In **Settings → Import into Plex**, map each Plex folder to how this PC reaches it (e.g. `H:\` →
-   `\\plexserver\H$`). Each folder shows a ✓ when PlexDL finds a file where Plex says it is.
+4. In **Settings → Import into Plex**, map each Plex folder to how this PC reaches it (e.g. `H:\Media` →
+   `\\plexpc\Media`). Each folder shows a ✓ when PlexDL finds a file where Plex says it is.
+
+The PlexDL service also needs a Windows account that can change files in those shares: see
+[Plex on a different PC](07-plex-on-another-pc.md) for sharing the folders, the account, and the network ports.
 
 Later you can change the address under **Settings → Your Plex server**.
 
