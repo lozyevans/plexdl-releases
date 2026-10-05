@@ -78,6 +78,7 @@ cleared; everything else goes after 90 days.
 
 - **Discord**: paste a channel webhook URL.
 - **ntfy**: a topic on ntfy.sh (or your own ntfy server) for phone notifications.
-- **Email**: your mail provider's SMTP server and an app password.
+- **Email**: your mail provider's SMTP server and an app password. The password is only ever sent over an
+  encrypted connection (port 465, or 587 with STARTTLS); a server that can't encrypt is refused.
 
 **Send test** checks each one. Passwords, webhooks and tokens are stored encrypted and never shown again.
