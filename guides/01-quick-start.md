@@ -32,8 +32,8 @@ _The screenshots use made-up friends and films._
   upgrades, the limited service account, uninstalling.
 - [Finding and downloading](03-compare-and-download.md): Compare, upgrades, the basket, the queue, where files
   go, History and undo.
-- [Following shows and automation](04-automation.md): Follows, your Plex Watchlist, download windows,
-  schedules and notifications.
+- [Following shows and automation](04-automation.md): Follows, the upcoming episodes calendar, your Plex
+  Watchlist, download windows, schedules and notifications.
 - [Media Manager](05-media-manager.md): tidying your own library safely.
 - [Troubleshooting](06-troubleshooting.md): offline servers, slow or blocked downloads, logs and getting help.
 - [Plex on a different PC](07-plex-on-another-pc.md): running PlexDL on another PC on your network: shares,
