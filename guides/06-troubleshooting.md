@@ -129,10 +129,11 @@ connection, or security software blocking the download.
 ### Video encoding
 
 PlexDL tries your graphics card first (NVIDIA, Intel or AMD) and uses the processor when it can't. Converting
-still works, it just takes longer. If the PC has no graphics card that encodes video this is green and there's
-nothing to do. If it's amber, the line says why the card failed its test: update the graphics driver if it
-says so, or if the card was busy (Plex may be transcoding on it) press **Test encoders again** in Settings →
-Conversion once Plex is idle.
+still works, it just takes longer: PlexDL then converts one file at a time at low priority (so Plex comes
+first) and uses a faster setting for anything that would take over 3 hours. If the PC has no graphics card that
+encodes video this is green and there's nothing to do. If it's amber, the line says why the card failed its
+test: update the graphics driver if it says so, or if the card was busy (Plex may be transcoding on it) press
+**Test encoders again** in Settings → Conversion once Plex is idle.
 
 ## Notifications and schedules
 
