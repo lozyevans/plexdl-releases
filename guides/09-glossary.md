@@ -108,3 +108,8 @@ can be deleted from Media Manager → PlexDL backups, or automatically each nigh
 
 Media Manager converting the files in your library that Plex has to transcode, a few each night in the hours you
 choose, until they're all done.
+
+## SDH
+
+Subtitles for the deaf and hard of hearing: as well as what's said, they describe sounds ("[door slams]") and
+say who's speaking. Plex lists them as SDH; PlexDL saves them as `Title.en.sdh.srt`.
