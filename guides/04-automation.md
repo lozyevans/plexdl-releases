@@ -12,6 +12,24 @@ Following a show means new episodes are downloaded as soon as any friend has the
 
 **Media Manager → Missing episodes in your seasons** offers **Follow this show** for shows with gaps.
 
+## Upcoming episodes: the calendar
+
+**Calendar** (in the menu) lists the episodes of shows you follow by the day they air: the last week, today,
+and the next two weeks. Air dates come from Plex's own catalogue and are checked again twice a day.
+
+For each episode it shows:
+
+- whether it's **coming up**, has aired and is **waiting for friends**, **a friend has it**, it's **in the
+  Queue** or already **in Plex**;
+- which friend usually has new episodes of that show first, and how long after airing (PlexDL learns this from
+  when your friends added the last few episodes);
+- roughly when PlexDL expects to download it, inside your download hours.
+
+An episode that aired a while ago and still isn't on any friend's server shows as **Late**, at the top. Turn on
+**Also show my other shows that are still airing** to see the shows you have but don't follow (they aren't
+downloaded by themselves; **Follow…** takes you to the show in Compare). The **Coming up** box on the Dashboard
+shows the next few days, and the weekly digest lists what airs in the coming week.
+
 ## Your Plex Watchlist
 
 Turn it on in the **Follows** page. Films you add to your Plex Watchlist (on any Plex app) are downloaded as
