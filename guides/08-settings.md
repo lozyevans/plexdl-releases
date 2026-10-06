@@ -53,12 +53,42 @@ the rest are re-encoded.
   your own. Once it shows a version number it's working, and installing again doesn't change anything.
 - **Encoders**: what PlexDL found works on this PC, tested with a real encode. A graphics card is much faster
   than the processor (CPU). **Test encoders again** after updating a graphics driver.
+- **On a PC with no usable graphics card** PlexDL converts on the processor: one file at a time, at low
+  priority so Plex and the rest of the PC always come first. It learns how fast this PC is (Settings shows
+  it, for example "a 2-hour film takes about 2 h 30 min"), and a file that would take over 3 hours uses a
+  faster setting instead, which makes it a little bigger. The Queue says which setting each one uses and
+  roughly how long it takes.
 - **Quality when re-encoding**: High quality, Recommended or Smaller files.
 - **Keep audio in** and **Subtitles to keep or fetch**: language codes such as `en, fr`. **Also keep the
   film's original language** keeps, say, the Japanese track of an anime film.
 - **Pause conversions while my Plex server is transcoding for someone**, so viewers come first.
 - **Advanced**: H.264 or HEVC, an exact quality value, conversions at once, an extra stereo track, keeping
   AV1 as it is.
+
+## Subtitles
+
+When a download arrives without subtitles in your **Subtitles to keep or fetch** languages, PlexDL looks for
+them in the background. Nothing waits for it: the title is already in Plex.
+
+- **Look for missing subtitles after each download**: on by default.
+- PlexDL first uses **Plex's own subtitle search** (the one in Plex apps, which gets them from OpenSubtitles).
+  It needs nothing set up.
+- **Check and fix the timing**: PlexDL listens for where people speak in the film and compares it with the
+  subtitles. If they're clearly early, late or made for a different frame rate (25 fps against 23.976), it
+  fixes them. The subtitles as found are kept in **PlexDL Backup\Subtitle originals**. If it can't tell, it
+  leaves them alone.
+- **Prefer subtitles for the deaf and hard of hearing** ([SDH](09-glossary.md#sdh)), with sounds described as
+  well as speech.
+- **OpenSubtitles.com directly** is for when Plex's search finds nothing. It needs your own free account on
+  opensubtitles.com and an API key (your profile → API consumers → New consumer). Enter the API key, your
+  username and your password, then **Test**. A free account has a daily download limit; Settings shows what's
+  left. The key and password are stored encrypted and never leave this PC (not even in a settings export).
+
+What was found shows on each title in **History** (for example "English subtitles added (OpenSubtitles via
+Plex), timing fixed (moved 2.4 s later)"). Undo in History takes them out with the rest. Subtitles are saved
+next to the video as `Title.en.srt` (or `Title.en.sdh.srt`), and an existing subtitle file is never
+replaced. For titles already in your library, Media Manager offers **Find subtitles** for films in another
+language with none in yours.
 
 ## Import into Plex
 
