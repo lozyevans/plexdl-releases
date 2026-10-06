@@ -106,6 +106,11 @@ the Queue for you to look at, with a link to it in Plex.
 
 Upgrades replace your old copy; the old one is kept in the `PlexDL Backup` folder next to that library.
 
+If a title arrives without subtitles in your languages, PlexDL then looks for them: with Plex's own subtitle
+search, and OpenSubtitles.com if you've set it up. It checks they're in time with the speech (and fixes them if
+not) and saves them next to the video. History shows what it found. See
+[Settings → Subtitles](08-settings.md#subtitles).
+
 ## Files from elsewhere: the Inbox
 
 Got a film or episode some other way? Turn on **Inbox** (in the menu), choose a folder (for example `D:\Inbox`)
