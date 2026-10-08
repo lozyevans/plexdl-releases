@@ -11,7 +11,10 @@ up, wrong matches, files Plex has to convert to play, broken files, clutter and 
 - **Nothing is deleted.** Files that are replaced or removed move to the `PlexDL Backup` folder next to the
   library. The only exceptions are deleting PlexDL's own backups, after you tick to confirm, and the nightly
   clean-up of old backups if you turn it on.
-- **Every change can be undone** from the **Changes** tab.
+- **Every change can be undone** from the **Changes** tab, unless a file it changed has been replaced since (by a
+  newer download, say): then Undo leaves the newer file alone and says so.
+- If a scan finishes while you're reviewing fixes, **Apply** stops and asks you to look again, so only what you
+  saw is changed.
 - If PlexDL is stopped part-way through a fix, it puts the files back where they were when it next starts.
 
 ## Scanning
@@ -48,6 +51,27 @@ come back with **Undo**. "Empty" means no files at all: a folder with only a `Th
 listed. A show folder can end up empty when its episodes were moved or deleted outside Plex. Check
 **Files Plex can't find** for that show before removing it.
 
+## Duplicates
+
+**Duplicates & clutter → Duplicates** finds a film or episode you have more than once: several versions under one
+Plex title, the same title in two of your libraries, or byte-for-byte copies. The fix keeps the best copy and
+moves the others to backup. A copy only counts as a duplicate when nothing is lost by moving it:
+
+- It's the **same cut** as the copy kept (running times within 4 minutes or 4%), the same **edition**
+  (`{edition-…}` in the name) and both are 2D. A 3D copy (in a 3D library, or `3D`, `SBS` or `HSBS` in the name)
+  is never a duplicate of the 2D one.
+- It's a plain copy of **that one episode**: a file named as another episode, or holding two (`S01E01-E02`), is
+  left alone, as is a file another title still uses.
+- It's **another file**: the same file reached through two library folders (or a folder link) is listed as
+  "Same folder in two libraries", with nothing to move.
+- The copy kept is **complete and readable**: never CD2 on its own, a file smaller than Plex saw, or one Deep
+  check couldn't read.
+
+Each fix names the copy it keeps. Just before it runs it checks again: the copy kept must still be there,
+unchanged and a different file, and the copies going must be unchanged since the scan. Byte-for-byte copies are
+compared in full first. If anything is different, nothing moves and you're asked to scan again. A batch scheduled
+for later skips any issue you've dismissed since, or whose fix a later scan changed.
+
 ## Night shift
 
 For the long jobs (the files Plex has to convert to play, and files that could be much smaller), turn on
@@ -80,7 +104,8 @@ since is left alone. If more backups have appeared since you looked, nothing is 
 shown for you to confirm again. Nothing outside the backup folders is ever touched, and only folders PlexDL made
 are counted: anything else you keep in there is left alone. A backup folder set in Settings that holds a library
 folder isn't used (PlexDL uses `PlexDL Backup` at the top of the drive instead). Entries under Changes whose
-backups are deleted are marked as no longer undoable.
+backups are deleted are marked as no longer undoable. A backup that holds the only copy of a film or episode whose
+upgrade hasn't finished (it failed part-way, say) is never deleted until you retry or cancel that download.
 
 To keep them in check by themselves, turn on **Delete PlexDL backups older than N days by itself, each night** in
 Media Manager → Settings. Once a night (after 03:00) PlexDL deletes the old ones and tells you how much it
