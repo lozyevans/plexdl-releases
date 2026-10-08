@@ -11,7 +11,7 @@ your home network.
 ## Download
 
 **[Download the latest version](https://github.com/lozyevans/plexdl-releases/releases/latest)**: under **Assets**, download
-`PlexDL-Setup-0.1.6.exe` (and `.sha256` if you'd like to check it).
+`PlexDL-Setup-0.1.7.exe` (and `.sha256` if you'd like to check it).
 
 Needs 64-bit Windows 10, 11 or Server 2016 or newer, with Plex Media Server installed on the same PC. Nothing
 else to install: the installer brings everything PlexDL needs.
