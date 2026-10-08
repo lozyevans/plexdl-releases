@@ -112,6 +112,11 @@ while someone is watching something Plex has to convert.
 PlexDL puts each title in the right library and folder with Plex's naming:
 
 - a show you already have goes into its existing folder, in the same season-folder style;
+- a library with folders on several drives (added in Plex under *Manage Library → Edit → Add folders*): new films
+  and new shows go to the folder with the most free space. When a show's own drive is nearly full (less than
+  10 GB would be left), its new episodes go in a folder of the same name on the library's roomiest drive, and Plex
+  shows both as one show. Separate libraries don't count: add the folder to the same library (PlexDL notices
+  new folders when it next refreshes your servers, or press **Refresh servers** on the Dashboard);
 - children's titles can go to a Kids library;
 - your own rules (by genre, rating, friend's library or title) come first: **Settings → Import into Plex**,
   with a tester that shows where a title would go and why.
