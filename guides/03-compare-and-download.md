@@ -6,6 +6,14 @@ PlexDL keeps its own index of your library and your friends' libraries. The **Da
 with what you're missing from it. **Full sync** reads everything; **Quick sync** only fetches what changed.
 Both also run on their own (a full sync every night and quick syncs through the day: Settings → Schedule).
 
+Each count on the Dashboard also says roughly how much space it would take (for example "7,219 Missing movies
+≈ 8.0 TB"), and so does each friend's card. Below the counts, **Getting all of it needs** adds it up and shows,
+for each drive it would land on, how much is heading there and how much is free. As when PlexDL adds them, new films and
+new shows go to your default film and TV library (on its drive with most room, if it has several), and
+episodes for shows you have and upgrades go next to your copies. A drive that can't take it all is shown in amber, so you can pick what matters most. The sizes are your friends' files, counting the copy PlexDL would pick (the best up
+to 1080p, or 4K if that's all there is). Converting often makes files smaller, so treat it as an upper
+estimate. Upgrades need room for the new copy while your old one waits in the PlexDL Backup folder; once the
+backup is emptied, they only take the difference.
 Choose which friends' libraries count in **Settings → Compare scope**. Titles are matched by their IMDb, TMDB
 and TVDB ids, not by name or library, so it doesn't matter what your friends call their libraries.
 
@@ -23,7 +31,9 @@ and TVDB ids, not by name or library, so it doesn't matter what your friends cal
   counts, is set in Settings → Upgrades).
 - **Collections**: film collections and franchises (the Alien films, James Bond, Toy Story…) you have part of:
   "You have 1 of 4", with what's missing listed underneath and which friend has each one. **Download N missing**
-  queues them straight away (1080p or 4K when there is one); **Add to basket** lets you review them first.
+  queues them straight away (1080p or 4K when there is one); **Add to basket** lets you review them first. To get
+  several collections at once, tick them (or **Select all … with films to get**) and press **Download** in the bar
+  that appears; each collection is queued as its own batch.
   **Follow** gets new parts as friends get them. Films nobody has, or that aren't out yet, are shown but not
   counted against you. PlexDL learns which collection each film is in from Plex's own catalogue after each
   sync (the first time takes a few minutes; **Look up now** starts it).
@@ -32,6 +42,10 @@ and TVDB ids, not by name or library, so it doesn't matter what your friends cal
   libraries ("From 2 films" means a collection appears once you have two of its films). Tick **Also refresh the
   library's metadata** so films you already have join; Plex does that in the background and it can take a
   while.
+
+**A–Z**: when Movies or TV is sorted by title (the default), the letters above the list jump straight to that
+letter (**#** is titles starting with a number or symbol; a leading "The" or "A" is ignored, so *The Matrix* is under
+M). Letters with nothing under them are greyed out.
 
 A **Downloads not permitted** badge means the owner hasn't allowed downloads from that library; those titles
 are listed but can't be added.
@@ -53,7 +67,8 @@ Dashboard, and are never auto-followed. Changed your mind? Tick **Show "don't do
    - for films that come in 4K, choose 4K or 1080p (TV defaults to 1080p);
    - sizes and rough download times are shown, and PlexDL warns you if a drive would run short.
 3. **Queue** them. The **Queue** page shows every title as it downloads, converts and is added to Plex, with
-   **Pause**, **Resume**, **Cancel**, **Retry** and priority.
+   **Pause**, **Resume**, **Cancel**, **Retry** and priority. Its tabs: **Active** (everything still on its way),
+   **Downloading** (only what's being downloaded right now), **In Plex**, **Problems** and **All**.
 
 Downloads resume where they stopped after a restart or a dropped connection, and large files download in
 several parts at once (much faster from a far-away server). Speed limits, how many run at once and night-time
