@@ -72,6 +72,23 @@ unchanged and a different file, and the copies going must be unchanged since the
 compared in full first. If anything is different, nothing moves and you're asked to scan again. A batch scheduled
 for later skips any issue you've dismissed since, or whose fix a later scan changed.
 
+### If you used Duplicates before 0.1.7
+
+Earlier versions could treat copies as duplicates when they weren't (the same film in Films and Kids Films, a 3D
+copy, another edition, a file holding two episodes) and move them to the `PlexDL Backup` folder. To put them all
+back so 0.1.7 can check them again with its safer rules, use `undo-duplicate-fixes.ps1` (in PlexDL's `scripts`
+folder, or from the release page):
+
+1. Open PowerShell as an administrator.
+2. Run `.\undo-duplicate-fixes.ps1` on its own first. It only reports, for each change, whether its files can go
+   back. Nothing changes.
+3. Run `.\undo-duplicate-fixes.ps1 -Restore`. It stops PlexDL, copies PlexDL's database aside first, moves every
+   backed-up copy back to where it was (never over anything), marks those changes as undone and starts PlexDL
+   again. A report is saved next to the database.
+4. In Plex, run **Scan Library Files** on the folders it lists, then run a new Media Manager scan in 0.1.7.
+
+Copies whose backups were already deleted can't come back; the report lists them so you can check those titles.
+
 ## Night shift
 
 For the long jobs (the files Plex has to convert to play, and files that could be much smaller), turn on
