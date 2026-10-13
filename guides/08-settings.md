@@ -36,6 +36,9 @@ How downloads use your connection and your friends' upload.
 - **Retry a failed download** / **Spread the retries over** / **Then try once a day for**: how hard PlexDL
   tries before giving up (see [When downloads fail](03-compare-and-download.md#when-downloads-fail)).
 - **Keep part-downloaded files of failed downloads**: so **Retry** carries on where it stopped.
+- **Converted files waiting for room**: when a library drive is full, Media Manager's converted files wait in the
+  staging folder up to this much (100 GB by default, never below the space kept free) and are moved in once there's
+  room ([more](05-media-manager.md#when-a-library-drive-is-full)). 0 = don't keep them.
 - **Staging folder**: where downloads wait while they're converted. The same drive as your library makes
   adding to Plex instant.
 - **Download half from each** when two friends have the identical file.
@@ -62,8 +65,35 @@ the rest are re-encoded.
 - **Keep audio in** and **Subtitles to keep or fetch**: language codes such as `en, fr`. **Also keep the
   film's original language** keeps, say, the Japanese track of an anime film.
 - **Pause conversions while my Plex server is transcoding for someone**, so viewers come first.
-- **Advanced**: H.264 or HEVC, an exact quality value, conversions at once, an extra stereo track, keeping
+- **Advanced**: H.264, HEVC or AV1, an exact quality value, conversions at once, an extra stereo track, keeping
   AV1 as it is.
+- **AV1** makes the smallest files (about a third smaller than HEVC), but many TVs, Rokus, older Fire TV sticks
+  and some browsers can't play it directly, so Plex has to convert it for them as they watch. Choose it only if
+  the devices you and your friends watch on play AV1. It uses a graphics card that can encode AV1 (RTX 40-series,
+  Intel Arc or 11th-gen Intel or later, AMD RX 7000) when there is one. Otherwise PlexDL encodes on the processor
+  with SVT-AV1, which needs the full ffmpeg build: choosing AV1 shows a **Download the full ffmpeg build** button
+  (about 250 MB, once). Until then, files that need re-encoding wait in the Queue for you. Files that are
+  already AV1 are kept as they are, and HDR films stay 10-bit (AV1 when the encoder can, otherwise HEVC).
+
+### Profiles
+
+A **profile** is a named set of the choices above: video format, quality, audio and subtitle languages, the
+stereo track and keeping AV1. Conversions at once and pausing for Plex are the same for every profile.
+
+- PlexDL starts you with three: **Direct play (H.264)**, **Smaller (HEVC)** and **Archive (AV1)**, all in your
+  languages. The one that matches the settings you had is the **default**; if none did, they're kept as
+  **My settings**.
+- Pick a profile at the top of the form to change it, rename it, **Make default**, make a **New profile from this
+  one**, **Delete** it, or **Reset to starter** (the starter's video choices back; your languages stay).
+- **Profile per library**: a library can use another profile, say Smaller (HEVC) for a library of old TV. Its
+  downloads, and Media Manager conversions of its files, use it. With an AV1 profile, Media Manager's **Shrink**
+  makes its big files AV1 too.
+- You can also choose a profile for one download (on the Review page), for the Inbox, and for a Media Manager run.
+- Each download keeps the profile it was queued with, so editing a profile later doesn't change what's already
+  waiting. Until it starts converting you can change it in the Queue, where each title shows its profile. If you
+  change where a download goes, a profile that came from its library follows the new library.
+- There are no free-form ffmpeg options: every choice is checked, so a conversion can't go wrong in ways PlexDL
+  can't see.
 
 ## Subtitles
 
