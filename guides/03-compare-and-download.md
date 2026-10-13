@@ -65,7 +65,9 @@ Dashboard, and are never auto-followed. Changed your mind? Tick **Show "don't do
 2. **Review** the basket before anything downloads:
    - when several friends have a title, pick the source (PlexDL suggests the best and fastest);
    - for films that come in 4K, choose 4K or 1080p (TV defaults to 1080p);
-   - sizes and rough download times are shown, and PlexDL warns you if a drive would run short.
+   - sizes and rough download times are shown, and PlexDL warns you if a drive would run short;
+   - **Convert with** picks a [conversion profile](08-settings.md#profiles) for just these downloads (normally
+     each library's, or the default).
 3. **Queue** them. The **Queue** page shows every title as it downloads, converts and is added to Plex, with
    **Pause**, **Resume**, **Cancel**, **Retry** and priority. Its tabs: **Active** (everything still on its way),
    **Downloading** (only what's being downloaded right now), **In Plex**, **Problems** and **All**.
@@ -104,8 +106,9 @@ apply; if the second friend gets busy or drops out, the first one finishes the r
 Each download is checked and, if needed, converted so it plays directly on TVs, phones and browsers without
 Plex converting it on the fly: an MP4 with H.264 (or HEVC for 4K), audio your devices play, and subtitles in
 your languages kept. Files that already play everywhere are just repackaged. Your graphics chip is used when
-there is one. **Settings → Conversion** sets the quality, languages and video format; PlexDL pauses conversions
-while someone is watching something Plex has to convert.
+there is one. **Settings → Conversion** sets the quality, languages and video format, as
+[profiles](08-settings.md#profiles) (one per library if you like); PlexDL pauses conversions while someone is
+watching something Plex has to convert.
 
 ## Adding to Plex
 
@@ -115,8 +118,10 @@ PlexDL puts each title in the right library and folder with Plex's naming:
 - a library with folders on several drives (added in Plex under *Manage Library → Edit → Add folders*): new films
   and new shows go to the folder with the most free space. When a show's own drive is nearly full (less than
   10 GB would be left), its new episodes go in a folder of the same name on the library's roomiest drive, and Plex
-  shows both as one show. Separate libraries don't count: add the folder to the same library (PlexDL notices
-  new folders when it next refreshes your servers, or press **Refresh servers** on the Dashboard);
+  shows both as one show. Media Manager's **Drives** check later offers to bring such a show back together. Separate libraries don't count: add the folder to the same library (PlexDL notices
+  new folders when it next refreshes your servers, or press **Refresh servers** on the Dashboard). A folder on a
+  new drive also needs a **folder mapping** (Settings → Import into Plex → Library folders), like `K:\` →
+  `\\server\K$`, or PlexDL can't reach it and won't use it;
 - children's titles can go to a Kids library;
 - your own rules (by genre, rating, friend's library or title) come first: **Settings → Import into Plex**,
   with a tester that shows where a title would go and why.
@@ -137,8 +142,10 @@ Got a film or episode some other way? Turn on **Inbox** (in the menu), choose a 
 and drop videos into it, in folders if you like. Every minute PlexDL looks for new files, leaving each one a
 minute first in case it's still copying in. It works out what each file is from its name and folders
 (`Arrival.2016.1080p.mkv`, `Spaced S01E03.avi`, `Doctor Who (2005)\Season 2\2x04.mkv`), checking your Plex, your
-friends' libraries and Plex's online catalogue. Then it converts and adds the file exactly like a download: an
-episode of a show you have goes next to your other episodes. Subtitle files with the same name
+friends' libraries and Plex's online catalogue. Then it converts and adds the file exactly like a download: renamed
+the Plex way (`Arrival (2016)\Arrival (2016).mp4`, or `Spaced (1999)\Season 01\Spaced (1999) - S01E03 - Ends.mp4`,
+following your own folders when you already have the show), re-encoded only if it wouldn't play directly
+(otherwise just repackaged as MP4, with no loss), and put in the right library. Subtitle files with the same name
 (`Arrival.2016.1080p.en.srt`) come along. Once Plex has it, the file is deleted from the inbox.
 
 Files PlexDL is sure about go straight in (you can turn that off). The rest wait on the Inbox page with the
@@ -146,7 +153,34 @@ reason: the name matches more than one title, the film has no year, it isn't fou
 more than one episode, or you already have it (importing then replaces your copy, which goes to the backup
 folder). **Import** goes ahead, **Change**
 searches for the right title (and asks for the season and episode of a show), and **Don't import** leaves the
-file alone. Samples, extras folders and tiny files are ignored. History can undo any import, as usual.
+file alone. Samples, extras folders and tiny files are ignored. History can undo any import, as usual. **Convert
+its files with** gives the Inbox its own [conversion profile](08-settings.md#profiles).
+
+To do several at once, tick them (or tick a group's box to tick all of it) and use the bar that appears: **Import**,
+**Don't import**, **Look again** or **Delete**. **Change** stays one at a time, since each file needs its own
+title. **Delete** removes the ticked files and their subtitle files for good, after showing you the list, and
+never touches a file that's being imported. Anything that can't be done is listed and stays ticked. Imported files
+stay in the list for a day; **Clear** removes them now.
+
+### Convert folders: converting without adding to Plex
+
+Just want videos converted, say to AV1 to save space, without them going into Plex? Under **Convert folders** on
+the Inbox page, add a folder to watch, an output folder and a [profile](08-settings.md#profiles) (Archive (AV1),
+for example). Videos dropped in are converted with that profile and saved in the output folder with the same name,
+as MP4, keeping any subfolders (`D:\Convert\Holiday\Beach.avi` becomes `D:\Converted\Holiday\Beach.mp4`).
+
+- They go through the **Queue** like downloads: one after another (or as many at once as Settings → Conversion
+  allows), pausing while Plex is busy, with progress, Cancel and Retry. They never go into Plex.
+- Every video is re-encoded to the profile's format, however short and whatever its subfolder is called, except
+  ones already in it, which are listed as left as they are.
+- The originals are never changed or deleted, and nothing already in the output folder is overwritten: a second
+  copy is saved as `Beach (2).mp4`.
+- **Convert again** converts a file once more (after you change its folder's profile, say). A file you change or
+  copy over again is converted again by itself.
+- A convert folder can't be inside its output folder, the Inbox or the staging folder (or the other way round),
+  since those delete files; PlexDL also refuses to move the Inbox or staging folder onto a convert folder.
+- If a converted file can't be saved (the output folder is full or missing, say), it shows as failed in the Queue;
+  **Retry** saves it again.
 
 ## History and undo
 
