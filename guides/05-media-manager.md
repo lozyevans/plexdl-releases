@@ -37,6 +37,11 @@ exact files involved (**Details**).
   filters, not just the 100 on screen), then **Review & fix…** to see every change before it happens.
 - Choose **Now** or **Later, at** a time (for example 02:00), so big jobs run overnight. Scheduled batches are
   listed at the top with **Cancel**.
+- Conversions use the [profile](08-settings.md#profiles) of the library each file is in (or the default);
+  **Convert with** picks another for this run.
+- **Shrink** (files that could be much smaller) re-encodes as HEVC, or as AV1 when the library's profile is AV1
+  and this PC can encode it: about a third smaller again, so the space it says you'll save is worked out that
+  way. Only choose AV1 for a library that's watched on devices that play it.
 - While a batch is running you can still add more: they wait their turn and start as soon as it finishes.
 - **Dismiss** hides an issue you're happy with (it stays hidden after later scans; **Show dismissed** brings it
   back).
@@ -89,6 +94,19 @@ folder, or from the release page):
 
 Copies whose backups were already deleted can't come back; the report lists them so you can check those titles.
 
+## Shows split across drives
+
+When a show's drive fills up, PlexDL puts its new episodes in a folder of the same name on another drive of that
+library, so downloads don't stop. Plex shows both as one show. Later, **Storage → Drives** lists each show split
+like that as **Show split across drives**, with a fix that brings it back together:
+
+- onto the drive holding most of the show, if that still leaves at least 10 GB free there;
+- otherwise the whole show moves to the library folder with the most free space that can take all of it.
+
+Season folders and file names stay as they are, nothing is overwritten (a file with the same name in both places
+is left for you to check under Duplicates), and the emptied show folder is removed only if nothing is left in it.
+Copying between drives takes a while, so this is a good one to schedule for the night.
+
 ## Night shift
 
 For the long jobs (the files Plex has to convert to play, and files that could be much smaller), turn on
@@ -98,6 +116,22 @@ doesn't start a new one after the window ends; one already running finishes. A f
 skipped for the rest of that night. You get a summary each morning that it did something, and a note when it's
 all done; a later scan that finds more gets picked up the next night. The top of the page shows how many are
 left. Every conversion is in **Changes** with **Undo**, like any other fix.
+
+### When a library drive is full
+
+Converting takes a while, so nothing converted is thrown away just because the library drive is full:
+
+- If the staging folder is on another drive and has room, the converted file **waits there**. The original isn't
+  touched. Every hour PlexDL checks whether the library drive has room and moves it in (with the original to backup,
+  in **Changes** with **Undo**, as usual). It isn't converted again.
+- The staging folder never holds more than **Converted files waiting for room** (Settings → Downloads, 100 GB by
+  default) and never goes below the space kept free for downloads. Past that, a file isn't converted at all while
+  its drive is full, and nothing more is converted onto that drive that night. Those files are tried again the
+  next night.
+- Media Manager lists the files waiting, with **Move in now** and **Discard** (which throws the converted copy away;
+  the original stays). After a week of waiting you get a notification.
+- The page and the morning summary say why files couldn't be converted (for example "Not enough space on
+  \\\\192.168.1.115\\h$\\") and how many are waiting for room. **Storage** can move shows to a roomier drive.
 
 ## Plex upkeep
 
@@ -140,3 +174,9 @@ Media Manager → Settings: file types never called junk (for example `nfo` if y
 backups must be before they're offered for deletion, when a film counts as "not watched for years", the weekly
 scan, and whether 10-bit H.264 is converted to HEVC (smaller, plays on most TVs) or 8-bit H.264 (plays on older
 devices too).
+
+**Conversions**: happy with your library as it is? Turn off **Offer to convert files**, or just one kind of it:
+**Convert for direct play** (files Plex has to convert to play, and commentary as the default audio) or **Make
+large files smaller**. Those issues are still listed, for information, without a fix; the night shift then has
+nothing to convert and says so. It takes effect straight away, and turning it back on brings the fixes back
+without a new scan.
