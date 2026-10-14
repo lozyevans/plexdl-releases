@@ -131,7 +131,7 @@ Converting takes a while, so nothing converted is thrown away just because the l
 - Media Manager lists the files waiting, with **Move in now** and **Discard** (which throws the converted copy away;
   the original stays). After a week of waiting you get a notification.
 - The page and the morning summary say why files couldn't be converted (for example "Not enough space on
-  \\\\192.168.1.115\\h$\\") and how many are waiting for room. **Storage** can move shows to a roomier drive.
+  \\\\192.168.1.10\\h$\\") and how many are waiting for room. **Storage** can move shows to a roomier drive.
 
 ## Plex upkeep
 
