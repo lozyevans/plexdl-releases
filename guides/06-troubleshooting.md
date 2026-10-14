@@ -51,6 +51,39 @@ The staging folder where downloads wait to be converted. Red means its drive has
 keeps spare (Settings → Downloads → Keep free on staging drive), so downloads won't start: free some space,
 lower the reserve, or move the staging folder to a bigger drive. Amber means it's getting close.
 
+### A network folder PlexDL can't open
+
+A folder on another PC (`\\PC\share\…`, such as the Inbox or a library folder reached over the network) that
+PlexDL can't open. The message says which of these it is:
+
+- **"… isn't answering"**: that PC is switched off, asleep or not on the network. Start it up; PlexDL tries
+  again by itself.
+- **"… is on, but isn't sharing files"**: turn on **File and Printer Sharing** on that PC (Windows Defender
+  Firewall → Allow an app, Private networks).
+- **"There's no PC called …"**: check the name, or use the PC's IP address instead.
+- **"… answered, but wouldn't let PlexDL into the share"**: the share name is wrong, or that PC wants a login
+  that the Windows account PlexDL runs as doesn't have. A restart of this PC often causes this: a connection
+  you opened by hand in File Explorer is gone afterwards.
+- **"Windows refused access"**: PlexDL got in, but its account isn't allowed to use that folder. Give it
+  permission on the share *and* the folder (see [Plex on a different PC](07-plex-on-another-pc.md)).
+
+To let PlexDL in:
+
+- **PlexDL installed as a service** (the usual way): it can't use connections or drive letters you set up in
+  File Explorer. Set up an account both PCs know and run the service as it, as described in
+  [Plex on a different PC](07-plex-on-another-pc.md), steps 1, 2 and 4.
+- **PlexDL running as you** (started by hand): save a login for that PC once, in PowerShell on this PC, using
+  an account on the other PC that may use the share. It asks for the password and keeps it after restarts:
+
+  ```powershell
+  cmdkey /add:192.168.1.10 /user:PLEXSERVER\sam /pass
+  ```
+
+  Use the PC's name or IP address exactly as it appears in the folder path. `Test-Path '\\192.168.1.10\Media'`
+  should then say `True`.
+
+Then press **Look now** on the Inbox page, or **Check again** under Settings → Import into Plex.
+
 ## Downloads and imports
 
 **A download keeps failing.** The Queue shows the reason and when it will try again. PlexDL retries on its own
@@ -115,7 +148,9 @@ Conversions carry on when they finish. **"ffmpeg isn't installed"**: install it 
 ### Imports waiting
 
 PlexDL can't add files to Plex right now: usually your Plex server isn't answering, or a library folder can't
-be written to (see [Library folders](#library-folders)). They're added as soon as that's fixed.
+be written to (see [Library folders](#library-folders); when it's on another PC, see
+[A network folder PlexDL can't open](#a-network-folder-plexdl-cant-open)). They're added as soon as that's
+fixed.
 
 ## Converting
 
