@@ -117,7 +117,9 @@ The same mappings are used by imports, Media Manager and the disk-space forecast
 
 - **"Access is denied"** on a library folder: the service account can't change files there. Re-check steps 1, 2
   and 4 (share permission *and* folder security), then restart PlexDL.
-- **Folder not reachable:** check the mapping and that `Test-Path` from step 2 works as that account.
+- **Folder not reachable:** the message says why (PC off, not sharing files, or needs a login); see
+  [A network folder PlexDL can't open](06-troubleshooting.md#a-network-folder-plexdl-cant-open). Check the
+  mapping and that `Test-Path` from step 2 works as that account.
 - **Plex can't be reached:** check the address under **Settings → Your Plex server** and that the Plex PC's
   firewall lets port 32400 through.
 - Everything else: [Troubleshooting](06-troubleshooting.md).
