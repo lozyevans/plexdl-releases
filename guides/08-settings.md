@@ -28,7 +28,8 @@ A **Downloads not permitted** badge means the owner hasn't allowed downloads fro
 
 How downloads use your connection and your friends' upload.
 
-- **Downloads at once** and **Per friend server**: how many run together. One or two per friend is kind to them.
+- **Downloads at once** (up to 20) and **Per friend server** (up to 10): how many run together. One or two per
+  friend is kind to them.
 - **Connections per file**: big files download in this many parts at once, which is much faster from far away.
 - **Total bandwidth cap** and **Per-server cap**: speed limits in Mbit/s (0 = no limit).
 - **Keep free on staging drive** and **Space needed per GB downloaded**: a download only starts if it fits
@@ -42,10 +43,16 @@ How downloads use your connection and your friends' upload.
 - **Staging folder**: where downloads wait while they're converted. The same drive as your library makes
   adding to Plex instant.
 - **Download half from each** when two friends have the identical file.
+- Each download is **checked by Windows Defender** before PlexDL opens it; the line under these settings says
+  whether that's working ([more](06-troubleshooting.md#flagged-by-windows-defender)).
 - **Only download during a time window**, with what happens at its end and an optional slower speed outside
-  it. Each friend's server can have its own window in its own time zone, a data limit, pausing while they
-  stream, and a share of their upload (see
+  it. Each friend's server can have its own window in its own time zone, a data limit, what to do while they
+  stream (slow down, pause or carry on), and a share of their upload (see
   [When things run](04-automation.md#when-things-run)).
+- **While it's streaming: slow down to …%**: how many downloads carry on from a friend while their server is
+  streaming, as a share of **Per friend server**, rounded down and never fewer than one. Up to 50%; 0 (the
+  default) means one at a time. For example, 10 per friend and 30% gives 3 while they stream. The other friends
+  keep their usual limits, and the speed is still held to a quarter of that friend's upload.
 
 ## Conversion
 
@@ -66,7 +73,14 @@ the rest are re-encoded.
   film's original language** keeps, say, the Japanese track of an anime film.
 - **Pause conversions while my Plex server is transcoding for someone**, so viewers come first.
 - **Advanced**: H.264, HEVC or AV1, an exact quality value, conversions at once, an extra stereo track, keeping
-  AV1 as it is.
+  AV1 as it is, and adding to Plex first.
+- **Add to Plex first, re-encode overnight**: a download whose video format is the only reason to re-encode it
+  (AV1, MPEG-2, XviD, 10-bit H.264) goes into Plex straight away with its video as it is (a quick repackage),
+  and Media Manager's night shift re-encodes it later. Until then, Plex converts it while it plays for devices
+  that need that. 4K brought down to 1080p and burnt-in forced subtitles are still done straight away, and
+  formats that can't go into MP4 as they are (WMV/VC-1) are re-encoded straight away too. It needs the night
+  shift, with **convert for direct play** and the weekly scan on (Media Manager → Settings); Settings and the
+  Queue say if anything's missing.
 - **AV1** makes the smallest files (about a third smaller than HEVC), but many TVs, Rokus, older Fire TV sticks
   and some browsers can't play it directly, so Plex has to convert it for them as they watch. Choose it only if
   the devices you and your friends watch on play AV1. It uses a graphics card that can encode AV1 (RTX 40-series,
@@ -78,7 +92,8 @@ the rest are re-encoded.
 ### Profiles
 
 A **profile** is a named set of the choices above: video format, quality, audio and subtitle languages, the
-stereo track and keeping AV1. Conversions at once and pausing for Plex are the same for every profile.
+stereo track, keeping AV1 and adding to Plex first. Conversions at once and pausing for Plex are the same for
+every profile.
 
 - PlexDL starts you with three: **Direct play (H.264)**, **Smaller (HEVC)** and **Archive (AV1)**, all in your
   languages. The one that matches the settings you had is the **default**; if none did, they're kept as
@@ -129,6 +144,10 @@ Where converted files go and how they're named.
   go to your library with Kids or Children in its name.
 - **Films go to** / **New TV shows go to**: the default library for each. New episodes of a show you have
   always go next to the ones you have.
+- **When a library has no room, put downloads in**: drives or folders (one per line) for titles whose library
+  drive is full. They go in a `PlexDL Not in Plex` folder there, ready to drag into Plex, or to add with **Add to
+  Plex now** in the Queue later. Leave it empty and the queue pauses instead. See
+  [Adding to Plex](03-compare-and-download.md#when-a-library-has-no-room).
 - **Advanced**: the backup folder for replaced files, and how long to wait for Plex to match a file.
 
 ### Destination rules
@@ -141,8 +160,18 @@ Rules can look at the genre, rating, the friend's library name or the title; the
 
 PlexDL must be able to write to every folder Plex uses for your libraries. Each shows **OK** with its free
 space, or why not. On the Plex PC this just works (with the limited account, run **Grant PlexDL access to
-media folders** from the Start menu). From another PC, add a **folder mapping** such as `H:\` →
-`\\server\H$`; the line under each folder checks that a file Plex has there really is at the mapped path.
+media folders** from the Start menu). From another PC, add a **folder mapping** such as `H:\Media` →
+`\\server\Media`, or to a drive you've mapped in File Explorer; the line under each folder checks that a file
+Plex has there really is at the mapped path. **Use …** buttons appear only for mappings PlexDL has checked that
+way: one of this PC's mapped drives, or `\\server\H$` once it has a login for that PC.
+
+**Logins for other PCs**: a user name and password for a PC whose shared folders PlexDL needs, used for every
+folder it opens there (library folders, Inbox, Convert folders, backups, staging and overflow folders). One per
+PC, as Windows allows one user name per PC at a time. PlexDL signs in only when a folder there won't open
+without it, keeps the password encrypted and never shows it again; it isn't in the settings file you export.
+**Test** signs in again and checks the folders there; **Remove** forgets the login and signs PlexDL out of that
+PC. When PlexDL runs as a Windows service it can't see drives mapped in File Explorer, so a login is the way in
+(or run the service as an account both PCs know: [Plex on a different PC](07-plex-on-another-pc.md)).
 
 ## Notifications
 
