@@ -58,7 +58,8 @@ Children in its name, instead of your main one.
 ## Folder mapping
 
 When PlexDL runs on another PC, it reaches your library folders by a different path than Plex uses, for example
-Plex's `H:\Films` as `\\server\H$\Films`. A mapping tells PlexDL how to turn one into the other.
+Plex's `H:\Media\Films` as `\\server\Media\Films`, or as `H:\Films` on a drive mapped in File Explorer. A
+mapping tells PlexDL how to turn one into the other.
 
 ## Download window
 
@@ -68,8 +69,8 @@ can have its own window in its own time zone. Outside it, downloads pause or car
 ## Going easy on friends
 
 PlexDL's limits that keep downloads polite: a share of each friend's upload speed (half in their daytime), an
-optional data limit per day or week, pausing while their server is streaming to someone, and resting a server
-that keeps failing.
+optional data limit per day or week, slowing down (or pausing, as you choose) while their server is streaming to
+someone, and resting a server that keeps failing.
 
 ## Connection
 
