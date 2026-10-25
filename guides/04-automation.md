@@ -68,9 +68,14 @@ the window downloads can pause or carry on at a slower speed.
 
 PlexDL also **goes easy on friends' servers** on its own:
 
-- While a friend's Plex server is converting a stream for someone, downloads from it pause, then carry on where
-  they stopped. (Plex only tells PlexDL about converted streams; someone playing a file directly shows up as the
-  server getting much slower, below.) You can turn this off per server.
+- While a friend's Plex server is converting video, PlexDL **slows down**: a quarter of their upload speed
+  (5 Mbit/s until it knows their upload) and fewer downloads at once: one by default, or the share of **Per friend
+  server** you set for that friend (up to half, e.g. 3 of 10 at 30%). Any others wait and carry on where they
+  stopped once it's finished. Converting means someone watching a converted stream, or someone downloading a
+  converted copy with a Plex app: Plex doesn't tell friends which, nor about direct plays and original-quality
+  downloads, which don't convert anything (someone playing a file directly shows up as the server getting much
+  slower, below). PlexDL's own downloads never count. Per server you can choose **slow down**, **pause** or
+  **carry on as normal** while it's streaming.
 - A server that keeps failing is rested for 2 minutes, then 10, 30 and 60, instead of being retried straight away.
 - A server that's much slower than usual for a couple of minutes gets one download at a time for 15 minutes, or a
   10-minute rest.
