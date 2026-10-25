@@ -32,7 +32,8 @@ many each found. Pick one to see its issues. Each says what's wrong, why it matt
 exact files involved (**Details**).
 
 - **Kind of problem** narrows a check down (for example *DTS/TrueHD audio only* or *Forced picture subtitle*
-  under "Files Plex has to convert to play").
+  under "Files Plex has to convert to play"). *AV1* lists AV1 files in libraries whose profile doesn't keep AV1
+  as it is (many TVs and browsers can't play it yet).
 - Tick issues, or **Select all fixable on this page**, or **select all N in this list** (every issue matching your
   filters, not just the 100 on screen), then **Review & fix…** to see every change before it happens.
 - Choose **Now** or **Later, at** a time (for example 02:00), so big jobs run overnight. Scheduled batches are
